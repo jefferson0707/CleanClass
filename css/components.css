@@ -1,0 +1,272 @@
+/* ============================================================
+   components.css — CleanClass
+   Botones, tarjetas, modales, tablas, badges, pills, gráficos,
+   ranking, fundadores, panel de comandos
+   ============================================================ */
+
+.card{border-radius:12px;padding:20px;transition:box-shadow .2s;border:1px solid rgba(6,182,212,.15)}
+.card:hover{box-shadow:0 8px 32px rgba(6,182,212,.2)}
+
+.badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;padding:10px 12px;font-weight:600;border-bottom:2px solid var(--border)}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.tbl tr:hover td{background:rgba(0,0,0,.02)}
+
+/* Legacy btn classes — mantenidas para compatibilidad */
+.btn{padding:7px 16px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-p{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;box-shadow:0 4px 16px rgba(6,182,212,.3)}
+.btn-p:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.btn-d{background:rgba(239,68,68,.12);color:#ef4444;border:1.5px solid rgba(239,68,68,.25)}
+.btn-d:hover{background:rgba(239,68,68,.2);transform:translateY(-1px)}
+.btn-s{background:rgba(6,182,212,.1);color:var(--accent);border:1.5px solid rgba(6,182,212,.25)}
+.btn-s:hover{background:rgba(6,182,212,.18);transform:translateY(-1px)}
+
+.inp{width:100%;padding:8px 12px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:14px;outline:none;background:rgba(6,182,212,.05);color:var(--text)}
+.inp:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:50}
+.modal{background:var(--surface);border-radius:16px;padding:24px;width:90%;max-width:420px;max-height:80%;overflow-y:auto}
+
+.tab{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--textm);transition:all .2s;position:relative}
+.tab.active{background:var(--accent);color:#fff}
+.tab:hover:not(.active){color:var(--accent);background:rgba(6,182,212,.08)}
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(6,182,212,.3)}50%{box-shadow:0 0 0 8px rgba(6,182,212,0)}}
+@keyframes ripple{0%{transform:scale(0);opacity:.5}100%{transform:scale(4);opacity:0}}
+@keyframes pill-glow{0%,100%{box-shadow:0 4px 16px rgba(6,182,212,.3)}50%{box-shadow:0 4px 28px rgba(6,182,212,.6)}}
+@keyframes btn-bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-3px)}70%{transform:translateY(-1px)}}
+
+.slide-up{animation:slideUp .35s ease both}
+.slide-in{animation:slideIn .3s ease both}
+.pop-in{animation:popIn .3s cubic-bezier(.175,.885,.32,1.275) both}
+.card:nth-child(1){animation-delay:.04s}
+.card:nth-child(2){animation-delay:.08s}
+.card:nth-child(3){animation-delay:.12s}
+.card:nth-child(4){animation-delay:.16s}
+.card:nth-child(5){animation-delay:.20s}
+
+/* ============================================================
+   BADGES COMPLIANCE
+   ============================================================ */
+.badge-bien{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:50px;font-size:12px;font-weight:700;background:rgba(34,197,94,.12);color:#16a34a;border:1px solid rgba(34,197,94,.3)}
+.badge-mal{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:50px;font-size:12px;font-weight:700;background:rgba(239,68,68,.12);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.badge-pendiente{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:50px;font-size:12px;font-weight:700;background:rgba(245,158,11,.12);color:#d97706;border:1px solid rgba(245,158,11,.3)}
+
+/* ============================================================
+   RANKING
+   ============================================================ */
+.rank-card{border-radius:12px;padding:14px 18px;background:var(--surface);border:1px solid rgba(6,182,212,.15);display:flex;align-items:center;gap:14px;animation:slideUp .3s ease both;transition:transform .2s,box-shadow .2s}
+.rank-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,182,212,.2)}
+.rank-medal{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;animation:pulse-glow 2s infinite}
+
+/* ============================================================
+   CHARTS
+   ============================================================ */
+.chart-wrap{position:relative;width:100%;background:var(--surface);border-radius:12px;padding:20px;border:1px solid rgba(6,182,212,.15);animation:slideUp .4s ease both}
+.chart-wrap canvas{max-width:100%}
+.analytics-tab-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:10px}
+.analytics-tab{padding:7px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--textm);transition:all .2s}
+.analytics-tab.active{background:var(--accent);color:#fff;box-shadow:0 4px 12px rgba(6,182,212,.3)}
+.analytics-tab:hover:not(.active){background:rgba(6,182,212,.1);color:var(--accent)}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+.progress-bar-track{width:100%;height:8px;border-radius:4px;background:rgba(6,182,212,.1);overflow:hidden}
+.progress-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#06b6d4,#2563eb);transition:width .6s cubic-bezier(.4,0,.2,1)}
+
+/* ============================================================
+   TABLA COMPLIANCE
+   ============================================================ */
+tr.compliant-row{background:rgba(16,185,129,.04)!important}
+tr.non-compliant-row{background:rgba(239,68,68,.04)!important}
+tr.compliant-row:hover td{background:rgba(16,185,129,.08)!important}
+tr.non-compliant-row:hover td{background:rgba(239,68,68,.08)!important}
+
+/* ============================================================
+   KPI CARD
+   ============================================================ */
+.kpi-card{border-radius:14px;padding:18px;background:var(--surface);border:1px solid rgba(6,182,212,.15);animation:slideUp .35s ease both;transition:all .2s}
+.kpi-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(6,182,212,.18);border-color:rgba(6,182,212,.35)}
+
+/* ============================================================
+   MULTISELECT
+   ============================================================ */
+#multiSelectWrap::-webkit-scrollbar{width:6px}
+#multiSelectWrap::-webkit-scrollbar-track{background:transparent}
+#multiSelectWrap::-webkit-scrollbar-thumb{background:#1d4ed8;border-radius:3px}
+
+/* ============================================================
+   PILL BUTTONS v3.0
+   ============================================================ */
+.pill{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .2s;letter-spacing:.2px;position:relative;overflow:hidden}
+.pill:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.pill:active{transform:scale(.97)}
+.pill::after{content:'';position:absolute;width:30px;height:30px;background:rgba(255,255,255,.25);border-radius:50%;transform:scale(0);pointer-events:none;left:50%;top:50%;margin-left:-15px;margin-top:-15px}
+.pill:active::after{animation:ripple .4s ease-out}
+
+.pill-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;box-shadow:0 4px 16px rgba(6,182,212,.35)}
+.pill-primary:hover{animation:btn-bounce .3s ease;box-shadow:0 6px 24px rgba(6,182,212,.5)}
+.pill-primary:active{transform:scale(.96);box-shadow:0 2px 8px rgba(6,182,212,.3)}
+.pill-success{background:rgba(34,197,94,.15);color:#16a34a;border:1.5px solid rgba(34,197,94,.3)}
+.pill-success:hover{background:rgba(34,197,94,.22);box-shadow:0 4px 14px rgba(34,197,94,.25)}
+.pill-danger{background:rgba(239,68,68,.12);color:#ef4444;border:1.5px solid rgba(239,68,68,.25)}
+.pill-danger:hover{animation:btn-bounce .3s ease;box-shadow:0 4px 16px rgba(239,68,68,.3);background:rgba(239,68,68,.2)}
+.pill-ghost{background:rgba(6,182,212,.1);color:var(--accent);border:1.5px solid rgba(6,182,212,.25)}
+.pill-ghost:hover{background:rgba(6,182,212,.18);box-shadow:0 4px 16px rgba(6,182,212,.2)}
+.pill-gray{background:rgba(100,116,139,.12);color:var(--textm);border:1.5px solid rgba(100,116,139,.2)}
+.pill-gray:hover{background:rgba(100,116,139,.2);color:var(--text)}
+.pill-amber{background:rgba(245,158,11,.12);color:#d97706;border:1.5px solid rgba(245,158,11,.25)}
+.pill-purple{background:rgba(139,92,246,.12);color:#8b5cf6;border:1.5px solid rgba(139,92,246,.25)}
+.pill-full{width:100%;justify-content:center}
+
+/* Badge pill */
+.badge-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:50px;font-size:12px;font-weight:700}
+.badge-pill-green{background:rgba(34,197,94,.12);color:#16a34a}
+.badge-pill-red{background:rgba(239,68,68,.12);color:#ef4444}
+.badge-pill-blue{background:rgba(59,130,246,.12);color:#3b82f6}
+.badge-pill-amber{background:rgba(245,158,11,.12);color:#d97706}
+.badge-pill-teal{background:rgba(6,182,212,.12);color:#06b6d4}
+.badge-pill-gray{background:rgba(100,116,139,.12);color:var(--textm)}
+
+/* Notif button */
+.notif-pill-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;border-radius:50px;background:rgba(6,182,212,.12);border:1.5px solid rgba(6,182,212,.3);color:var(--accent);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;animation:pill-glow 2.5s ease infinite}
+.notif-pill-btn:hover{background:rgba(6,182,212,.22)!important;transform:translateY(-2px);animation:none;box-shadow:0 6px 20px rgba(6,182,212,.4)}
+.notif-pill-btn:active{transform:scale(.97)}
+
+/* ============================================================
+   PANEL CTRL+K — anuncios del admin
+   ============================================================ */
+#cmdPanel {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.6);
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn .15s ease;
+}
+#cmdBox {
+  background: #1e293b;
+  border: 1px solid rgba(6,182,212,.3);
+  border-radius: 16px;
+  width: 90%; max-width: 560px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(6,182,212,.1);
+  overflow: hidden;
+  animation: popIn .2s cubic-bezier(.175,.885,.32,1.275) both;
+}
+#cmdHeader {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid rgba(6,182,212,.1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+#cmdInput {
+  width: 100%; padding: 16px 20px;
+  background: transparent; border: none; outline: none;
+  font-size: 16px; color: var(--text); font-family: 'DM Sans', sans-serif;
+}
+#cmdInput::placeholder { color: var(--textm); }
+#cmdFooter {
+  padding: 12px 20px;
+  border-top: 1px solid rgba(6,182,212,.1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+/* Anuncio flotante para todos */
+@keyframes announceIn {
+  from { opacity:0; transform: translateY(-20px) scale(.95); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+@keyframes announceOut {
+  from { opacity:1; transform: translateY(0) scale(1); }
+  to   { opacity:0; transform: translateY(-10px) scale(.97); }
+}
+#announceBanner {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 9998; max-width: 560px; width: 90%;
+  background: linear-gradient(135deg, #1e293b, #0f2545);
+  border: 1px solid rgba(6,182,212,.4);
+  border-radius: 14px; padding: 16px 20px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(6,182,212,.2);
+  animation: announceIn .35s cubic-bezier(.175,.885,.32,1.275) both;
+}
+
+/* ============================================================
+   FUNDADORES — marcos + nombres animados
+   ============================================================ */
+@keyframes gFire{0%,100%{box-shadow:0 0 0 2px #ff4500,0 0 12px 4px #ff450099,0 0 24px 8px #ff450033}50%{box-shadow:0 0 0 3px #ffd700,0 0 18px 7px #ffd700aa,0 0 36px 12px #ffd70044}}
+@keyframes gGold{0%,100%{box-shadow:0 0 0 2px #b8860b,0 0 10px 3px #FFD70099}50%{box-shadow:0 0 0 3px #FFD700,0 0 22px 9px #FFD700cc}}
+@keyframes gElec{0%{box-shadow:0 0 0 2px #00f5ff,0 0 10px 3px #00f5ff88}25%{box-shadow:0 0 0 3px #7000ff,0 0 16px 6px #7000ffaa}50%{box-shadow:0 0 0 2px #0080ff,0 0 20px 8px #0080ffcc}75%{box-shadow:0 0 0 3px #00f5ff,0 0 14px 5px #00f5ffaa}100%{box-shadow:0 0 0 2px #00f5ff,0 0 10px 3px #00f5ff88}}
+@keyframes gAurora{0%{box-shadow:0 0 0 2px #00ff88,0 0 12px 4px #00ff8888}33%{box-shadow:0 0 0 2px #00cfff,0 0 14px 5px #00cfff88}66%{box-shadow:0 0 0 2px #8000ff,0 0 14px 5px #8000ff88}100%{box-shadow:0 0 0 2px #00ff88,0 0 12px 4px #00ff8888}}
+@keyframes gRainbow{0%{box-shadow:0 0 0 2px #ff0000,0 0 12px 4px #ff000088;border-color:#ff0000}17%{box-shadow:0 0 0 2px #ff8800,0 0 12px 4px #ff880088;border-color:#ff8800}33%{box-shadow:0 0 0 2px #ffff00,0 0 12px 4px #ffff0088;border-color:#ffff00}50%{box-shadow:0 0 0 2px #00ff00,0 0 12px 4px #00ff0088;border-color:#00ff00}67%{box-shadow:0 0 0 2px #00ffff,0 0 12px 4px #00ffff88;border-color:#00ffff}83%{box-shadow:0 0 0 2px #8800ff,0 0 12px 4px #8800ff88;border-color:#8800ff}100%{box-shadow:0 0 0 2px #ff0000,0 0 12px 4px #ff000088;border-color:#ff0000}}
+@keyframes gOcean{0%,100%{box-shadow:0 0 0 2px #006994,0 0 12px 4px #00b4d888}50%{box-shadow:0 0 0 2px #90e0ef,0 0 20px 8px #00b4d8cc}}
+@keyframes gChaos{0%{box-shadow:0 0 0 2px #ff0000,0 0 8px 2px #ff000088;border-color:#ff0000}20%{box-shadow:0 0 0 4px #000,0 0 14px 5px #ff450099;border-color:#ff4500}40%{box-shadow:0 0 0 2px #ff6600,0 0 20px 8px #8b000099;border-color:#ff6600}60%{box-shadow:0 0 0 5px #8b0000,0 0 6px 1px #ff000066;border-color:#8b0000}80%{box-shadow:0 0 0 2px #ff2200,0 0 16px 6px #ff000088;border-color:#ff2200}100%{box-shadow:0 0 0 2px #ff0000,0 0 8px 2px #ff000088;border-color:#ff0000}}
+@keyframes gOrder{0%,100%{box-shadow:0 0 0 1.5px #1e3a5f,0 0 8px 2px #4a90d966}50%{box-shadow:0 0 0 2px #4a90d9,0 0 16px 6px #ffffffaa}}
+@keyframes gCrystal{0%,100%{box-shadow:0 0 0 2px #7dd3fc,0 0 10px 3px #7dd3fc66}50%{box-shadow:0 0 0 2px #fff,0 0 22px 9px #ffffffaa}}
+@keyframes gPoison{0%,100%{box-shadow:0 0 0 2px #39ff14,0 0 10px 3px #39ff1488}50%{box-shadow:0 0 0 2px #7fff00,0 0 22px 9px #39ff14cc}}
+@keyframes gBH{0%,100%{box-shadow:0 0 0 2px #4b0082,0 0 14px 5px #8b00ff88,0 0 28px 10px #4b008244}50%{box-shadow:0 0 0 3px #8b00ff,0 0 26px 11px #8b00ffcc,0 0 50px 18px #4b008266}}
+@keyframes gIce{0%,100%{box-shadow:0 0 0 2px #a8e6f0,0 0 10px 3px #a8e6f088}50%{box-shadow:0 0 0 2px #fff,0 0 20px 8px #5bc8e0bb}}
+
+@keyframes nmFire{0%,100%{color:#ff4500}50%{color:#ffd700}}
+@keyframes nmGold{0%,100%{color:#FFD700}50%{color:#fffacd}}
+@keyframes nmElec{0%{color:#00f5ff}33%{color:#7000ff}66%{color:#0080ff}100%{color:#00f5ff}}
+@keyframes nmAurora{0%{color:#00ff88}33%{color:#00cfff}66%{color:#8000ff}100%{color:#00ff88}}
+@keyframes nmRainbow{0%{color:#ff0000}14%{color:#ff8800}28%{color:#ffff00}43%{color:#00ff00}57%{color:#00ffff}71%{color:#0088ff}85%{color:#8800ff}100%{color:#ff0000}}
+@keyframes nmOcean{0%,100%{color:#00b4d8}50%{color:#90e0ef}}
+@keyframes nmChaos{0%{color:#ff0000}25%{color:#ff4500}50%{color:#8b0000}75%{color:#ff6600}100%{color:#ff0000}}
+@keyframes nmOrder{0%,100%{color:#4a90d9}50%{color:#ffffff}}
+@keyframes nmCrystal{0%,100%{color:#7dd3fc}50%{color:#ffffff}}
+@keyframes nmPoison{0%,100%{color:#39ff14}50%{color:#7fff00}}
+@keyframes nmBH{0%,100%{color:#8b00ff}50%{color:#c084fc}}
+@keyframes nmIce{0%,100%{color:#a8e6f0}50%{color:#ffffff}}
+@keyframes bdPulse{0%,100%{opacity:.8}50%{opacity:1}}
+
+.founder-avatar{border:2px solid transparent;flex-shrink:0;overflow:visible!important;border-radius:50%}
+.founder-avatar img{border-radius:50%;display:block;width:100%;height:100%;object-fit:cover}
+.founder-fire    {border-color:#ff4500!important;animation:gFire 2s ease-in-out infinite}
+.founder-gold    {border-color:#FFD700!important;animation:gGold 2s ease-in-out infinite}
+.founder-electric{border-color:#00f5ff!important;animation:gElec 1.4s ease-in-out infinite}
+.founder-aurora  {border-color:#00ff88!important;animation:gAurora 3s ease-in-out infinite}
+.founder-rainbow {border-color:#ff0000!important;animation:gRainbow 2s linear infinite}
+.founder-ocean   {border-color:#00b4d8!important;animation:gOcean 2.5s ease-in-out infinite}
+.founder-chaos   {border-color:#ff4500!important;animation:gChaos .85s ease-in-out infinite}
+.founder-order   {border-color:#4a90d9!important;animation:gOrder 4s ease-in-out infinite}
+.founder-crystal {border-color:#7dd3fc!important;animation:gCrystal 3s ease-in-out infinite}
+.founder-poison  {border-color:#39ff14!important;animation:gPoison 2s ease-in-out infinite}
+.founder-blackhole{border-color:#8b00ff!important;animation:gBH 2.5s ease-in-out infinite}
+.founder-ice     {border-color:#a8e6f0!important;animation:gIce 3s ease-in-out infinite}
+
+.founder-nm{font-weight:800!important;font-size:13px}
+.founder-nm-fire    {animation:nmFire 2s ease-in-out infinite}
+.founder-nm-gold    {animation:nmGold 2s ease-in-out infinite}
+.founder-nm-electric{animation:nmElec 1.4s linear infinite}
+.founder-nm-aurora  {animation:nmAurora 3s linear infinite}
+.founder-nm-rainbow {animation:nmRainbow 2s linear infinite}
+.founder-nm-ocean   {animation:nmOcean 2.5s ease-in-out infinite}
+.founder-nm-chaos   {animation:nmChaos .85s ease-in-out infinite}
+.founder-nm-order   {animation:nmOrder 4s ease-in-out infinite}
+.founder-nm-crystal {animation:nmCrystal 3s ease-in-out infinite}
+.founder-nm-poison  {animation:nmPoison 2s ease-in-out infinite}
+.founder-nm-blackhole{animation:nmBH 2.5s ease-in-out infinite}
+.founder-nm-ice     {animation:nmIce 3s ease-in-out infinite}
+
+.founder-badge{font-size:9px;font-weight:700;padding:1px 7px;border-radius:50px;border:1px solid;display:inline-block;animation:bdPulse 2s ease-in-out infinite;margin-top:1px}
+.founder-bd-fire    {border-color:#ff4500;color:#ff4500;background:#ff450018}
+.founder-bd-gold    {border-color:#FFD700;color:#FFD700;background:#FFD70018}
+.founder-bd-electric{border-color:#00f5ff;color:#00f5ff;background:#00f5ff18}
+.founder-bd-aurora  {border-color:#00ff88;color:#00ff88;background:#00ff8818}
+.founder-bd-rainbow {border-color:#ff8800;color:#ff8800;background:#ff880018}
+.founder-bd-ocean   {border-color:#00b4d8;color:#00b4d8;background:#00b4d818}
+.founder-bd-chaos   {border-color:#ff4500;color:#ff4500;background:#ff450018}
+.founder-bd-order   {border-color:#4a90d9;color:#4a90d9;background:#4a90d918}
+.founder-bd-crystal {border-color:#7dd3fc;color:#7dd3fc;background:#7dd3fc18}
+.founder-bd-poison  {border-color:#39ff14;color:#39ff14;background:#39ff1418}
+.founder-bd-blackhole{border-color:#8b00ff;color:#8b00ff;background:#8b00ff18}
+.founder-bd-ice     {border-color:#a8e6f0;color:#a8e6f0;background:#a8e6f018}
+
+.founder-row{background:rgba(255,255,255,.02)!important}
